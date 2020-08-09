@@ -5,7 +5,7 @@
 
 import unittest
 import pandas as pd
-from nlp_algo.process.preprocessing import Remove
+from nlp_algo.process.clean import Remove
 
 
 class TestRemove(unittest.TestCase):

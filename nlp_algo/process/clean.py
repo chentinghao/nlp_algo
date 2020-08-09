@@ -50,7 +50,20 @@ class Remove(object):
 
 if __name__ == "__main__":
     import pandas as pd
+
     df = pd.DataFrame()
-    df["a"] = ["produce", "produces"]
+    df["url"] = ["My github is https://github.com/"]
+    df["pun"] = ["!'#$%&()*+-/:;<=>?@[\\]^_`{|}~"]
+    df["num"] = ["1234567890"]
+    df["space"] = ["a b c"]
+    df["lemma"] = ["produces"]
+
     remove = Remove(df)
-    print(remove.lemma("a"))
+    df_clean = remove.url(col_target="url", col_new="url_new")
+    df_clean = remove.punctuation(col_target="pun", col_new="pun_new")
+    df_clean = remove.number(col_target="num", col_new="num_new")
+    df_clean = remove.space(col_target="space", col_new="space_new")
+    df_clean = remove.space(col_target="lemma", col_new="lemma_new")
+
+
+
