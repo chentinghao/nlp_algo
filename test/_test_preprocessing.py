@@ -16,6 +16,7 @@ class TestRemove(unittest.TestCase):
         df["pun"] = ["!'#$%&()*+-/:;<=>?@[\\]^_`{|}~"]
         df["num"] = ["1234567890"]
         df["space"] = ["a b c"]
+        df["lemma"] = ["produces"]
         self.remove = Remove(df)
 
     def test_url(self):
@@ -34,6 +35,10 @@ class TestRemove(unittest.TestCase):
     def test_space(self):
         clean_df = self.remove.space(col_target="space", col_new=None)
         self.assertTrue(" " not in clean_df["space"][0])
+
+    def test_lemma(self):
+        clean_df = self.remove.lemma(col_target="lemma", col_new=None)
+        self.assertTrue(clean_df["lemma"][0] == "produce")
 
     @classmethod
     def tearDownClass(cls):
