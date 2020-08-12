@@ -26,4 +26,18 @@ if __name__ == "__main__":
     seq = [[1, 2, 3, 4, 5]]
     seq_pad = pad(seq, maxlen=10)
 
+    import hanlp
+    tokenizer = hanlp.load('CTB6_CONVSEG')
+    print(tokenizer('商品和服务'))
+
+    tokenizer = hanlp.utils.rules.tokenize_english
+    print(tokenizer("Don't go gentle into that good night."))
+
+    print(tokenizer(['萨哈夫说，伊拉克将同联合国销毁伊拉克大规模杀伤性武器特别委员会继续保持合作。',
+               '上海华安工业（集团）公司董事长谭旭光和秘书张晚霞来到美国纽约现代艺术博物馆参观。',
+               'HanLP支援臺灣正體、香港繁體，具有新詞辨識能力的中文斷詞系統']))
+
+
+
+
 
